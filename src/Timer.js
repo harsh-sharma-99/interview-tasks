@@ -10,18 +10,17 @@ const Timer = () => {
   let timer;
 
   useEffect(() => {
-    timer = setInterval(() => {
-      console.log("timer");
-      setTime((prev) => prev + 1);
-    }, 1000);
+    if (!displayText) {
+      timer = setInterval(() => {
+        setTime((prev) => prev + 1);
+      }, 1000);
+    }
     return () => {
-      console.log("unmount");
       clearInterval(timer);
     };
   }, [displayText]);
 
   useEffect(() => {
-    console.log("did update");
     if (time === 5) {
       setDisplayText(true);
     }
