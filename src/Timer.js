@@ -33,4 +33,4 @@ const Timer = () => {
   );
 };
 
-export default Timer;
+export default React.memo(Timer);

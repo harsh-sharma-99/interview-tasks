@@ -1,8 +1,8 @@
-import { createContext } from "react";
+import { createContext, memo } from "react";
 
 export const userFirstName = createContext();
 export const userLastName = createContext();
 
-const FirstNameContext = userFirstName.Provider;
-const LastNameContext = userLastName.Provider;
+const FirstNameContext = memo(userFirstName.Provider);
+const LastNameContext = memo(userLastName.Provider);
 export { FirstNameContext, LastNameContext };

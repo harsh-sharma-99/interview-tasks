@@ -9,4 +9,4 @@ const A = () => {
   );
 };
 
-export default A;
+export default React.memo(A);

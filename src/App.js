@@ -7,8 +7,10 @@ import { FirstNameContext, LastNameContext } from "./context";
 
 function App() {
   const [toggle, setToggle] = useState(false);
+  const [text, setText] = useState("");
   return (
     <div className="App">
+      <input value={text} onChange={(e) => setText(e.target.value)} />
       <Counter />
       {!toggle && <Timer />}
       <button onClick={() => setToggle(!toggle)}>Toggle Timer</button>
