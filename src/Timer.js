@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 const Text = () => {
   return <h1>5 sec reached </h1>;
@@ -7,16 +7,16 @@ const Text = () => {
 const Timer = () => {
   const [time, setTime] = useState(0);
   const [displayText, setDisplayText] = useState(false);
-  let timer;
+  let timer = useRef(null);
 
   useEffect(() => {
     if (!displayText) {
-      timer = setInterval(() => {
+      timer.current = setInterval(() => {
         setTime((prev) => prev + 1);
       }, 1000);
     }
     return () => {
-      clearInterval(timer);
+      clearInterval(timer.current);
     };
   }, [displayText]);
 
